@@ -53,7 +53,7 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-boot-github-action-demo:latest
   deploy:
     needs: build
-    runs-on: [ip-172-31-17-26]
+    runs-on: [aws-ec2]
     steps:
       - name: Pull Image from docker hub
         run: docker pull mohibgazi/spring-boot-github-action-demo:latest
