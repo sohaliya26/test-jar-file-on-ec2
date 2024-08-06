@@ -55,8 +55,11 @@ jobs:
     needs: build
     runs-on: [aws-ec2]
     steps:
-      - name: Pull Image from docker hub
-        run: sudo docker pull sohaliya/spring-boot-github-action-demo:latest
+      - name:  install && Pull Image from docker hub
+        run: |
+          sudo apt install docker.io -y
+          sudo docker pull sohaliya/spring-boot-github-action-demo:latest
+            
       - name: Delete old container
         run: sudo docker rm -f spring-boot-app-container
       - name: Run Docker Image
